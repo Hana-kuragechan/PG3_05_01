@@ -1,5 +1,5 @@
 #include <Novice.h>
-
+#include"StageScene.h"
 const char kWindowTitle[] = "GC2B_10_タムラ_ハナコ";
 
 // Windowsアプリでのエントリーポイント(main関数)
@@ -7,7 +7,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
-
+	StageScene* stageScene = new StageScene;
+	
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
 	char preKeys[256] = {0};
@@ -24,17 +25,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓更新処理ここから
 		///
-
+		stageScene->Update();
 		///
 		/// ↑更新処理ここまで
-		///
-
-		///
-		/// ↓描画処理ここから
-		///
-
-		///
-		/// ↑描画処理ここまで
 		///
 
 		// フレームの終了
@@ -48,5 +41,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ライブラリの終了
 	Novice::Finalize();
+	delete stageScene;
 	return 0;
 }
