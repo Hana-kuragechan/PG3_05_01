@@ -11,6 +11,7 @@ void StageScene::Init()
 	inputHandler_->AssignMoveLeftCommand2PressKeyA();
 
 	player_ = new Player();
+	player_->Iint();
 }
 
 void StageScene::Update()
@@ -20,9 +21,10 @@ void StageScene::Update()
 		iCommand_->Exec(*player_);
 	}
 	player_->Update();
-	player_->Draw();
+	
 }
 
 void StageScene::Draw()
 {
+	player_->Draw();
 }
